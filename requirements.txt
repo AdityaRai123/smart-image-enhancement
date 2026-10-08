@@ -1,0 +1,12 @@
+# Core dependencies - everything needed for the full application on CPU.
+# Tested with Python 3.14.5 and the versions in parentheses (October 2026).
+numpy>=1.26               # (2.5.3)
+opencv-python-headless>=4.9   # (5.0.0)
+pillow>=10.0              # (12.3.0)
+scikit-image>=0.22        # (0.26.0)  PSNR / SSIM + bundled sample images
+matplotlib>=3.8           # (3.11.2)  histograms and charts
+pandas>=2.1               # (3.0.6)   tables and evaluation CSVs
+streamlit>=1.50           # (1.65.0)  web interface
+pytest>=8.0               # (9.1.1)   unit tests
+
+# Optional AI super-resolution (Real-ESRGAN) needs PyTorch: see requirements-ai.txt.

@@ -1,0 +1,10 @@
+[theme]
+base = "light"
+primaryColor = "#2a78d6"
+
+[server]
+# Matches IngestionSettings.max_upload_megabytes (the app also validates it).
+maxUploadSize = 25
+
+[browser]
+gatherUsageStats = false

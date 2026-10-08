@@ -1,0 +1,15 @@
+# OPTIONAL: AI super-resolution with Real-ESRGAN (CPU is enough).
+# The application works without this file; Real-ESRGAN is then reported as unavailable
+# and a clearly labelled Lanczos fallback is used for low-resolution images.
+#
+# CPU-only wheel (recommended, ~200 MB instead of several GB of CUDA libraries):
+#     pip install -r requirements-ai.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.2                # (2.14.1+cpu)
+#
+# No basicsr / realesrgan package is needed: the network definitions are in
+# src/enhancement/realesrgan_arch.py and the official weights are downloaded from
+# https://github.com/xinntao/Real-ESRGAN/releases on first use (~4.7 MB).
+#
+# Also optional (not installed by default): background removal, ~170 MB model download
+#     pip install rembg

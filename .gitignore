@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Downloaded model weights (fetched automatically on first use)
+models/
+
+# Generated data and results (re-create with the scripts)
+data/clean/
+data/test/
+outputs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
