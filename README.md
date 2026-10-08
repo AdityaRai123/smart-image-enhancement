@@ -4,6 +4,13 @@
 BITE314L Multimedia Systems course project (VIT, Fall 2026-27). This repository is the
 implementation of the system proposed in the Review 1 report.
 
+**Live demo:** <https://smart-image-enhancement.streamlit.app>
+
+The hosted demo runs the full classical pipeline. The optional Real-ESRGAN stage needs
+PyTorch, so it only runs when you run the app locally (see [Installation](#7-installation)
+and [Real-ESRGAN setup](#9-real-esrgan-setup)). Free hosted apps sleep when unused, so the
+first visit may take about a minute to wake it.
+
 ---
 
 ## 1. Project description
