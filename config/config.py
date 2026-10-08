@@ -339,6 +339,7 @@ class EvaluationSettings:
 class AppSettings:
     title: str = "Smart Multimedia Image Enhancement Assistant"
     subtitle: str = "An AI-Based Adaptive Enhancement System"
+    repo_url: str = "https://github.com/AdityaRai123/smart-image-enhancement"
     # Images shown in the comparison slider are downscaled to this width (display only).
     display_max_side: int = 1100
     # Built-in sample images (scikit-image, bundled offline) for the synthetic demo mode.

@@ -50,6 +50,34 @@ def render_header() -> None:
         "optional Real-ESRGAN super-resolution is reserved for low-resolution images. Every decision is traced "
         "back to a measured statistic."
     )
+    st.markdown(f":material/code: Source code and setup instructions: [{APP.repo_url}]({APP.repo_url})")
+
+
+def render_sr_instructions(reason: str) -> None:
+    """Shown when AI super-resolution is enabled but Real-ESRGAN cannot run here."""
+    with st.container(border=True):
+        st.markdown("#### :material/info: Real-ESRGAN is not available on this server")
+        st.markdown(
+            f"{reason}\n\n"
+            "This hosted demo runs the full classical pipeline, but the optional AI stage needs PyTorch, which is "
+            "too heavy for the free hosting tier. Low-resolution images are upscaled with **Lanczos interpolation** "
+            "instead (labelled *classical fallback, not AI*). To use **Real-ESRGAN**, run the app on your own "
+            f"computer (CPU is enough). Get the code from [GitHub]({APP.repo_url}), then run:"
+        )
+        st.code(
+            f"git clone {APP.repo_url}.git\n"
+            "cd smart-image-enhancement\n"
+            "python -m venv venv\n"
+            "venv\\Scripts\\activate            # Windows  (Linux/macOS: source venv/bin/activate)\n"
+            "pip install -r requirements.txt\n"
+            "pip install -r requirements-ai.txt   # PyTorch CPU (~200 MB) for Real-ESRGAN\n"
+            "streamlit run app.py",
+            language="bash",
+        )
+        st.caption(
+            "The Real-ESRGAN weights (~5 MB) download automatically the first time you tick "
+            "'Enable AI super-resolution' on a low-resolution image."
+        )
 
 
 def stage_tracker_html(statuses: list[str], times: dict[str, float] | None = None) -> str:

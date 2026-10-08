@@ -37,6 +37,11 @@ st.set_page_config(
 def main() -> None:
     ui.render_header()
     state = render_sidebar()
+    sr = get_sr_backend(state)
+    if state.sr_enabled:
+        (st.sidebar.success if sr.ai_ready else st.sidebar.warning)(sr.message)
+        if not sr.ai_ready:
+            ui.render_sr_instructions(sr.message)
     tracker = st.empty()
     statuses = ["pending"] * len(STAGES)
     tracker.html(ui.stage_tracker_html(statuses))
@@ -59,10 +64,6 @@ def main() -> None:
     ingestion_ms = (time.perf_counter() - start) * 1000.0
     statuses[0] = "done"
     tracker.html(ui.stage_tracker_html(statuses, {"Image Ingestion": ingestion_ms}))
-
-    sr = get_sr_backend(state)
-    if state.sr_enabled:
-        (st.sidebar.success if sr.ai_ready else st.sidebar.warning)(sr.message)
 
     # ---- Stages 2-5 (cached per image + settings) -------------------------------------
     key = run_key(loaded, state, sr)
